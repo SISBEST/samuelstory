@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js" charset="utf-8"></script>
+  <script src="/gamepad.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    Mousetrap.bind('a', function() {
+      window.location.href = 'a/story.html';
+    });
+    Mousetrap.bind('b', function() {
+      window.location.href = 'b/story.html';
+    });
+    const gamepad = new Gamepad();
+    gamepad.on('press', 'button_1', () => {
+      window.location.href = 'a/story.html';
+    });
+    gamepad.on('press', 'button_1', () => {
+      window.location.href = 'b/story.html';
+    });
+  </script>
+  <title>SamuelStory</title>
+</head>
+
+<body>
+  <img src="choice.png" alt="Choice" id="cpic">
+
+  <div class="content">
+    <button onclick="window.location.href = 'a/story.html'"><img src="/a.svg" height="40px" /> Yes</button>
+    <button onclick="window.location.href = 'b/story.html'"><img src="/b.svg" height="40px" /> No</button>
+    <div class="container">
+        <div class="achievement-banner animated">
+            <div class="achievement-loader"></div>
+            <div class="achievement-loader"></div>
+            <div class="achievement-loader"></div>
+            <div class="achievement-loader"></div>
+            <div class="achievement-loader"></div>
+            <div class="achievement-trophy logo"></div>
+
+            <div class="achievement-text">
+                <p class="achievement-notification">Achievement Unlocked</p>
+                <p class="achievement-name"><span id="storagename">Baby Steps</span><br /><small>Start the story!</small></p>
+            </div>
+            <script type="text/javascript">
+              localStorage.setItem(document.querySelector('#storagename').innerHTML, true);
+            </script>
+        </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
